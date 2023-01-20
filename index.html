@@ -11,18 +11,29 @@
     <p>Utilize o nosso gerador online para criar uma senha forte e segura.</p>
 
     <!-- Text Input -->
-    <input type="texto" name="senha" id="input_senha">
+    <input type="texto" name="senha" id="input_senha" />
     <!-- Barra deslizante -->
-    <input type="range" name="senha-tamanho" id="senha-tamanho" value="16" min="4" max="64">
+    <input 
+        type="range" 
+        name="senha-tamanho" 
+        id="input_senhaRange" 
+        value="16" 
+        min="4" 
+        max="64"
+    />
     <!-- Botão comum -->
     <button>Copiar Senha</button>
 
     <script>
+        const vSenhaTamanhoEl = document.querySelector("#input_senhaRange")
+        let vSenhaTamanho = vSenhaTamanhoEl.value
+        console.log(vSenhaTamanho)
+
         function geradorSenha(){
             const vChars = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ123456789?!@&*()[]"
             let vSenha = ""
 
-            for(let i = 0; i < 8; i++){
+            for(let i = 0; i < vSenhaTamanho; i++){
                 // retorna um número aleatorio entre a quantidade de caracteres de vChars
                 const vRandomNumero = Math.floor(Math.random() * vChars.length)
                 // Pega qual é o caractere da posicao retornada no random
@@ -36,11 +47,20 @@
                 // console.log(`----`)
             }
 
-            const vResult = document.querySelector("#input_senha")
-            vResult.value = vSenha
+            const vResultEl = document.querySelector("#input_senha")
+            vResultEl.value = vSenha
             
-            console.log(vSenha)
+            //console.log(vSenha)
         }
+ 
+        //Criar evento slide do input range
+        //declarei global... const vSenhaTamanhoEl = document.querySelector("#input_senhaRange") 
+        vSenhaTamanhoEl.addEventListener("input", function(){
+            vSenhaTamanho = vSenhaTamanhoEl.value
+            //console.log(vSenhaTamanho)
+            geradorSenha()
+        })
+
         geradorSenha()
     </script>
 </body>
