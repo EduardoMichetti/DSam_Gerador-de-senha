@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Gerador de Senha</h1>
+    <p>Utilize o nosso gerador online para criar uma senha forte e segura.</p>
+
+    <!-- Text Input -->
+    <input type="texto" name="senha" id="input_senha">
+    <!-- Barra deslizante -->
+    <input type="range" name="senha-tamanho" id="senha-tamanho" value="16" min="4" max="64">
+    <!-- Botão comum -->
+    <button>Copiar Senha</button>
+
+    <script>
+        function geradorSenha(){
+            const vChars = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ123456789?!@&*()[]"
+            let vSenha = ""
+
+            for(let i = 0; i < 8; i++){
+                // retorna um número aleatorio entre a quantidade de caracteres de vChars
+                const vRandomNumero = Math.floor(Math.random() * vChars.length)
+                // Pega qual é o caractere da posicao retornada no random
+                vSenha += vChars.substring(vRandomNumero, vRandomNumero + 1)
+                
+                // const vRandomTeste = Math.random()
+                // console.log(`Random: `,vRandomTeste)
+                // console.log(`Tamanho: `,vChars.length)
+                // console.log(`Random x Tamanho:`, (vRandomTeste * vChars.length))
+                // console.log(`Floor: `, Math.floor(vRandomTeste * vChars.length))
+                // console.log(`----`)
+            }
+
+            const vResult = document.querySelector("#input_senha")
+            vResult.value = vSenha
+            
+            console.log(vSenha)
+        }
+        geradorSenha()
+    </script>
+</body>
+</html>
