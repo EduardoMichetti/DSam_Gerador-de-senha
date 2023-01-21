@@ -24,7 +24,7 @@ main{
     color: #828282;
 }
 /*-------------------------------------------*/
-.box {
+.box{
     background: #fff; /*cor branca*/
     box-shadow: 0 1px 2px rgba(132, 148, 165, 0.8);/*rgba sãs as cores mais alpha que significa porcentagem da transparência*/
     border-radius: 8px;
@@ -85,6 +85,108 @@ main{
 .indicadorSeguranca .barra.safe{
     background-color: #27ae60;
 }
+/* ------------------------------------------- */
+.customizar {
+    padding: 1rem 1.5rem;
+}
+.customizar .titulo{
+    border-bottom: 1px solid #f0f0f0; /* o traço que fica abaixo do título */
+    padding-bottom: 0.75rem; /* espaçamento do traço */
+    margin-bottom: 2rem; /* espaçamento depois do traço */
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+.customizar .acoes{
+    display: flex;
+    gap: 3rem; 
+    color: #828282
+}
+.customizar .senhaTamanho{
+    flex: 1; /* espaçar a barra deslizante o máximo possivel*/
+}
+.customizar .senhaTamanho .slider{
+    appearance: none;
+    -webkit-appearance: none;
+    height: 10px;
+    background: #dddddd;
+    outline:none;
+    border-radius: 8px;
+    width: 100%;
+    opaticty: 0.7;
+    transition: opacity 0.2s;
+    margin-top: 1rem;
+}
+.customizar .senhaTamanho .slider:hover{/* customizando bola do slider */
+    opacity: 1; /* quando passa o mouse por cima */
+}
+.customizar .senhaTamanho .slider::-webkit-slider-thumb{/* customizando bola do slider */
+    /* webkit para atender navegadores que usam o rendereizador do goole (chrome,ie,edge) */
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background: #9b51e0;
+    cursor: pointer;
+}
+.customizar .senhaTamanho .slider::-moz-range-thumb {/* customizando bola do slider */
+    /* moz para atender navegadores o rendereizador da mozila (firefox)*/
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background: #9b51e0;
+    cursor: pointer;
+}
+.checkboxContainer{
+    display: block; /* para criar um bloco (label + checkbox)*/
+    position: relative; /* para ficar um abaixo do outro */
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    cursor: pointer; /* mudar o cursor para o que ta dentro do bloco */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.checkboxContainer input{ /* para esconder o checkbox */
+    /* checkbox nao aceita trabalhar com propriedades, então vamos criar um span para fazer o papel dele depois */
+    position: absolute;
+    height: 0;
+    width: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+.checkboxContainer .checkmark{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width:25px;
+    background-color: #dddddd;
+    transition: all 0.2;
+}
+.checkboxContainer:hover input ~ .checkmark{
+    /* se tiver vazio vai colorir de cinza */
+    background-color: #cccccc;
+}
+.checkboxContainer input:checked ~ .checkmark{
+    /* se tiver vazio vai colorir de roxo */
+    background-color: #9b51e0;
+}
+.checkboxContainer .checkmark:after{
+    /* simular uma seta de checado no checkbox */
+    content: "";
+    display: none;
+    position: absolute;
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 13px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+.checkboxContainer input:checked ~ .checkmark:after{
+    display:block;
+}
 
-
-/*-------------------------------------------*/
