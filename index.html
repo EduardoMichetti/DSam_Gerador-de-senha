@@ -45,15 +45,42 @@
             </div>
         </section> 
       
-        <!-- Barra deslizante -->
-        <input 
-            type="range" 
-            name="senha-tamanho" 
-            id="input_senhaRange" 
-            value="16" 
-            min="4" 
-            max="64"
-        />
+        <section class="box 2">
+            <h3 class="titulo">Personalizar</h3>
+            <div class="acao">
+                <div class="senhaTamanho">
+                    <p>Tamanho: <span class="textoTamanho">16</span></p>
+                    <!-- Barra deslizante -->
+                    <input 
+                        type="range" 
+                        name="senha-tamanho" 
+                        id="input_senhaRange" 
+                        value="16" 
+                        min="4" 
+                        max="64"
+                    />
+                </div>
+
+                <div class="configuracao">
+                    <label class="checkboxContainer">
+                        <span class="texto">Maiúsculas</span>
+                        <input type="checkbox" id="hUpperCheck" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkboxContainer">
+                        <span class="texto">Números</span>
+                        <input type="checkbox" id="hNumerosCheck" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkboxContainer">
+                        <span class="texto">Símbolos</span>
+                        <input type="checkbox" id="hSimboloCheck" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+        </section>
+       
         <!-- Botão comum -->
         <button id="copy">Copiar Senha</button>
     </main>
