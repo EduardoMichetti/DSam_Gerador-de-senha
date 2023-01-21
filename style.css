@@ -59,4 +59,32 @@ main{
     opacity: 0.7;
     transition: opacity 0.2s;    
 }
+/* barra de segurança*/
+.indicadorSeguranca {
+    height: 10px;
+    background-color: #ddd;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.indicadorSeguranca .barra{
+    height: 10px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    transition: all 0.2s;
+}
+.indicadorSeguranca .barra .completed{
+    border-top-right-radius: 0px;
+}
+.indicadorSeguranca .barra .critical{
+    background-color: #eb5757;
+}
+.indicadorSeguranca .barra .warning{
+    background-color: #f2c94c;
+}
+.indicadorSeguranca .barra.safe{
+    background-color: #27ae60;
+}
+
+
 /*-------------------------------------------*/
