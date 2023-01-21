@@ -22,46 +22,60 @@
         max="64"
     />
     <!-- Botão comum -->
-    <button>Copiar Senha</button>
+    <button id="copy">Copiar Senha</button>
 
     <script>
-        const vSenhaTamanhoEl = document.querySelector("#input_senhaRange")
-        let vSenhaTamanho = vSenhaTamanhoEl.value
-        console.log(vSenhaTamanho)
+        //só executa o javascript depois que o html carregou
+        document.addEventListener("DOMContentLoaded", function(event) {
 
-        function geradorSenha(){
-            const vChars = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ123456789?!@&*()[]"
-            let vSenha = ""
-
-            for(let i = 0; i < vSenhaTamanho; i++){
-                // retorna um número aleatorio entre a quantidade de caracteres de vChars
-                const vRandomNumero = Math.floor(Math.random() * vChars.length)
-                // Pega qual é o caractere da posicao retornada no random
-                vSenha += vChars.substring(vRandomNumero, vRandomNumero + 1)
-                
-                // const vRandomTeste = Math.random()
-                // console.log(`Random: `,vRandomTeste)
-                // console.log(`Tamanho: `,vChars.length)
-                // console.log(`Random x Tamanho:`, (vRandomTeste * vChars.length))
-                // console.log(`Floor: `, Math.floor(vRandomTeste * vChars.length))
-                // console.log(`----`)
-            }
-
+            //variável que seta ou recebe valor do input
             const vResultEl = document.querySelector("#input_senha")
-            vResultEl.value = vSenha
-            
-            //console.log(vSenha)
-        }
- 
-        //Criar evento slide do input range
-        //declarei global... const vSenhaTamanhoEl = document.querySelector("#input_senhaRange") 
-        vSenhaTamanhoEl.addEventListener("input", function(){
-            vSenhaTamanho = vSenhaTamanhoEl.value
-            //console.log(vSenhaTamanho)
-            geradorSenha()
-        })
+            //variável que controla o tamanho da quantidade de caracteres da senha
+            const vSenhaTamanhoEl = document.querySelector("#input_senhaRange")
+            let vSenhaTamanho = vSenhaTamanhoEl.value
+            console.log(vSenhaTamanho)
 
-        geradorSenha()
+            function geradorSenha(){
+                const vChars = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ123456789?!@&*()[]"
+                let vSenha = ""
+
+                for(let i = 0; i < vSenhaTamanho; i++){
+                    // retorna um número aleatorio entre a quantidade de caracteres de vChars
+                    const vRandomNumero = Math.floor(Math.random() * vChars.length)
+                    // Pega qual é o caractere da posicao retornada no random
+                    vSenha += vChars.substring(vRandomNumero, vRandomNumero + 1)
+                    
+                    // const vRandomTeste = Math.random()
+                    // console.log(`Random: `,vRandomTeste)
+                    // console.log(`Tamanho: `,vChars.length)
+                    // console.log(`Random x Tamanho:`, (vRandomTeste * vChars.length))
+                    // console.log(`Floor: `, Math.floor(vRandomTeste * vChars.length))
+                    // console.log(`----`)
+                }
+
+                vResultEl.value = vSenha
+                
+                //console.log(vSenha)
+            }
+        
+            //função para copiar o texto do input text
+            function copy(){
+                navigator.clipboard.writeText(vResultEl.value)
+            }
+            //evento para fazer a cópia
+            const botaoCopiarEl = document.querySelector("#copy")
+            botaoCopiarEl.addEventListener("click", copy)
+    
+            //Criar evento slide do input range
+            //declarei global... const vSenhaTamanhoEl = document.querySelector("#input_senhaRange") 
+            vSenhaTamanhoEl.addEventListener("input", function(){
+                vSenhaTamanho = vSenhaTamanhoEl.value
+                //console.log(vSenhaTamanho)
+                geradorSenha()
+            })
+
+            geradorSenha()
+        });
     </script>
 </body>
 </html>
