@@ -1,29 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+
     <title>Document</title>
 </head>
+
 <body>
-    <h1>Gerador de Senha</h1>
-    <p>Utilize o nosso gerador online para criar uma senha forte e segura.</p>
-
-    <!-- Text Input -->
-    <input type="texto" name="senha" id="input_senha" />
-    <!-- Barra deslizante -->
-    <input 
-        type="range" 
-        name="senha-tamanho" 
-        id="input_senhaRange" 
-        value="16" 
-        min="4" 
-        max="64"
-    />
-    <!-- Botão comum -->
-    <button id="copy">Copiar Senha</button>
-
+    <main>
+        <section class="hero">
+            <h1 class="titulo">Gerador de Senha</h1>
+            <p class="subtitulo">
+                Utilize o nosso gerador online para criar uma senha forte e segura.
+            </p>
+        </section>
+        
+        <section class="box">
+            <div class="senha">
+                <div class="senhaTexto">
+                    <!-- Text Input -->
+                    <input type="texto" name="senha" id="input_senha" />
+                </div>
+                <div class="acoes">
+                    <button id="copiar">
+                        <img src="copy.svg" width="42">
+                    </button>
+                    <button id="trocar">
+                        <img src="renew.svg" width="42">
+                    </button>
+                </div>
+            </div>
+        </section> 
+      
+        <!-- Barra deslizante -->
+        <input 
+            type="range" 
+            name="senha-tamanho" 
+            id="input_senhaRange" 
+            value="16" 
+            min="4" 
+            max="64"
+        />
+        <!-- Botão comum -->
+        <button id="copy">Copiar Senha</button>
+    </main>
     <script>
         //só executa o javascript depois que o html carregou
         document.addEventListener("DOMContentLoaded", function(event) {
@@ -59,12 +87,12 @@
             }
         
             //função para copiar o texto do input text
-            function copy(){
+            function copiar(){
                 navigator.clipboard.writeText(vResultEl.value)
             }
             //evento para fazer a cópia
-            const botaoCopiarEl = document.querySelector("#copy")
-            botaoCopiarEl.addEventListener("click", copy)
+           document.querySelector("#copiar").addEventListener("click", copiar)
+           document.querySelector("#copy").addEventListener("click", copiar)
     
             //Criar evento slide do input range
             //declarei global... const vSenhaTamanhoEl = document.querySelector("#input_senhaRange") 
