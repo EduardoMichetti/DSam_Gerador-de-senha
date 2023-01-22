@@ -71,15 +71,15 @@ main{
     border-top-right-radius: 8px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    transition: all 0.2s;
+    transition: all 0.2s; //efeito de transição enquanto a barra se move
 }
-.indicadorSeguranca .barra .completed{
-    border-top-right-radius: 0px;
+.indicadorSeguranca .barra.completed{
+    border-top-right-radius: 0;
 }
-.indicadorSeguranca .barra .critical{
+.indicadorSeguranca .barra.critical{
     background-color: #eb5757;
 }
-.indicadorSeguranca .barra .warning{
+.indicadorSeguranca .barra.warning{ 
     background-color: #f2c94c;
 }
 .indicadorSeguranca .barra.safe{

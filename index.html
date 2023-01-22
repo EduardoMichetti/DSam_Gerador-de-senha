@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="indicadorSeguranca">
-                <div id="indicadorSegurancaBarra" class="barra" style="width: 90%">
+                <div id="hIndicadorSegurancaBarra" class="barra">
 
                 </div>
             </div>
@@ -104,6 +104,8 @@
             const vNumberCharsEl = document.querySelector("#hNumerosCheck")
             const vSymbolCharsEl = document.querySelector("#hSimboloCheck")
 
+            const indicadorSegurancaBarraEl = document.querySelector("#hIndicadorSegurancaBarra")
+            
             function geradorSenha(){
                 let vChars = "abcdefghjkmnpqrstuvwxyz"
                 const vUpperCaseChars = "ABCDEFGHJKLMNPQRSTUVWXYZ"
@@ -135,8 +137,37 @@
                 }
 
                 vResultEl.value = vSenha
-                
+                calcularSegurancaSenha()
                 //console.log(vSenha)
+            }
+            function calcularSegurancaSenha(){
+                const percentual = Math.round(
+                    ((vSenhaTamanho / 64) * 25) +
+                    (vUpperCaseCharsEl.checked ? 15 : 0) + 
+                    (vNumberCharsEl.checked ? 25 : 0) +
+                    (vSymbolCharsEl.checked ? 35 : 0)
+                )
+                //console.log(percentual)
+                indicadorSegurancaBarraEl.style.width = `${percentual}%`
+
+                if(percentual > 69){  
+                    indicadorSegurancaBarraEl.classList.remove("critical")
+                    indicadorSegurancaBarraEl.classList.remove("warning")
+                    indicadorSegurancaBarraEl.classList.add("safe")
+                } else if(percentual > 50){
+                    indicadorSegurancaBarraEl.classList.remove("critical")
+                    indicadorSegurancaBarraEl.classList.add("warning")
+                    indicadorSegurancaBarraEl.classList.remove("safe")
+                } else{
+                    indicadorSegurancaBarraEl.classList.add("critical")
+                    indicadorSegurancaBarraEl.classList.remove("warning")
+                    indicadorSegurancaBarraEl.classList.remove("safe")
+                }
+                if (percentual >= 100)
+                    indicadorSegurancaBarraEl.classList.add("completed")
+                else 
+                indicadorSegurancaBarraEl.classList.remove("completed")
+
             }
         
             //função para copiar o texto do input text
@@ -151,7 +182,7 @@
             //declarei global... const vSenhaTamanhoEl = document.querySelector("#input_senhaRange") 
             vSenhaTamanhoEl.addEventListener("input", function(){
                 vSenhaTamanho = vSenhaTamanhoEl.value
-                console.log(vSenhaTamanho)
+                //console.log(vSenhaTamanho)
                 document.querySelector("#hTextoTamanho").innerText = vSenhaTamanho   
                 
                 geradorSenha()
