@@ -49,7 +49,7 @@
             <h3 class="titulo">Personalizar</h3>
             <div class="acoes">
                 <div class="senhaTamanho">
-                    <p>Tamanho: <span class="textoTamanho">16</span></p>
+                    <p>Tamanho: <span id="hTextoTamanho">16</span></p>
                     <!-- Barra deslizante -->
                     <input 
                         type="range" 
@@ -151,7 +151,9 @@
             //declarei global... const vSenhaTamanhoEl = document.querySelector("#input_senhaRange") 
             vSenhaTamanhoEl.addEventListener("input", function(){
                 vSenhaTamanho = vSenhaTamanhoEl.value
-                //console.log(vSenhaTamanho)
+                console.log(vSenhaTamanho)
+                document.querySelector("#hTextoTamanho").innerText = vSenhaTamanho   
+                
                 geradorSenha()
             })
             vUpperCaseCharsEl.addEventListener("click", geradorSenha)
