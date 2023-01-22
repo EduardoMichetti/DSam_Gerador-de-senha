@@ -52,6 +52,15 @@ main{
     -ms-user-select: none;
     user-select: none;    
 }
+.senha .senhaTexto input.font-sm{
+    font-size: 2rem;
+}
+.senha .senhaTexto input.font-xs{
+    font-size: 1.5rem;
+}
+.senha .senhaTexto input.font-xxs{
+    font-size: 1rem;
+}
 .senha .acoes button{
     background-color: transparent;
     border: none;
@@ -206,3 +215,26 @@ margin-top: 1rem;
 .copiar2 button:hover{
     background-color: #9b51e0;
 }
+/* ------------------------------------------- */
+/* criar estilo para ficar responsivo */
+/* abaixo de 480 de largura usar este estilo */
+@media only screen and (max-width: 480px){
+    .senha {
+        padding: 1rem;
+    }
+    .senha .senhaTexto input{
+        font-size: 1.5rem;
+    }
+    .senha .senhaTexto input.font-sm{
+        font-size: 1.2rem;
+    }
+    .senha .senhaTexto input.font-xs{
+        font-size: 1rem;
+    }
+    .senha .senhaTexto input.font-xxs{
+        font-size: 1rem;
+    }
+    .senha .acoes img{ /* tamanho dos botoes ao lado da senha */
+        width: 24px;
+    }
+} 

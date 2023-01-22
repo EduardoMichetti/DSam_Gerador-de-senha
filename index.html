@@ -138,6 +138,7 @@
 
                 vResultEl.value = vSenha
                 calcularSegurancaSenha()
+                calculateFontSize()
                 //console.log(vSenha)
             }
             function calcularSegurancaSenha(){
@@ -167,7 +168,26 @@
                     indicadorSegurancaBarraEl.classList.add("completed")
                 else 
                 indicadorSegurancaBarraEl.classList.remove("completed")
+            }
 
+            function calculateFontSize(){
+                if(vSenhaTamanho > 45){
+                    vResultEl.classList.add("font-xxs")
+                    vResultEl.classList.remove("font-xs")
+                    vResultEl.classList.remove("font-sm")
+                } else if (vSenhaTamanho > 32){
+                    vResultEl.classList.remove("font-xxs")
+                    vResultEl.classList.add("font-xs")
+                    vResultEl.classList.remove("font-sm")
+                } else if (vSenhaTamanho > 22){
+                    vResultEl.classList.remove("font-xxs")
+                    vResultEl.classList.remove("font-xs")
+                    vResultEl.classList.add("font-sm")
+                } else {
+                    vResultEl.classList.remove("font-xxs")
+                    vResultEl.classList.remove("font-xs")
+                    vResultEl.classList.remove("font-sm")
+                }
             }
         
             //função para copiar o texto do input text
@@ -177,6 +197,9 @@
             //evento para fazer a cópia
            document.querySelector("#copiar").addEventListener("click", copiar)
            document.querySelector("#copy").addEventListener("click", copiar)
+
+           //evento para recarregar a senha
+           document.querySelector("#trocar").addEventListener("click", geradorSenha)
     
             //Criar evento slide do input range
             //declarei global... const vSenhaTamanhoEl = document.querySelector("#input_senhaRange") 
