@@ -99,8 +99,25 @@
             let vSenhaTamanho = vSenhaTamanhoEl.value
             console.log(vSenhaTamanho)
 
+            //Criando elemento para receber valor da propriedade html CHECKBOX   
+            const vUpperCaseCharsEl = document.querySelector("#hUpperCheck")
+            const vNumberCharsEl = document.querySelector("#hNumerosCheck")
+            const vSymbolCharsEl = document.querySelector("#hSimboloCheck")
+
             function geradorSenha(){
-                const vChars = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ123456789?!@&*()[]"
+                let vChars = "abcdefghjkmnpqrstuvwxyz"
+                const vUpperCaseChars = "ABCDEFGHJKLMNPQRSTUVWXYZ"
+                const vNumberChars = "123456789"
+                const vSymbolChars = "?!@&*()[]"
+
+                if(vUpperCaseCharsEl.checked)
+                    vChars += vUpperCaseChars                           
+                if(vNumberCharsEl.checked)
+                    vChars += vNumberChars                                
+                if(vSymbolCharsEl.checked)
+                    vChars += vSymbolChars
+                
+
                 let vSenha = ""
 
                 for(let i = 0; i < vSenhaTamanho; i++){
@@ -137,6 +154,9 @@
                 //console.log(vSenhaTamanho)
                 geradorSenha()
             })
+            vUpperCaseCharsEl.addEventListener("click", geradorSenha)
+            vNumberCharsEl.addEventListener("click", geradorSenha)
+            vSymbolCharsEl.addEventListener("click", geradorSenha)
 
             geradorSenha()
         });

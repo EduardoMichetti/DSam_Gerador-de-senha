@@ -105,29 +105,29 @@ main{
     flex: 1; /* espaçar a barra deslizante o máximo possivel*/
 }
 .customizar .senhaTamanho .slider{
-    appearance: none;
-    -webkit-appearance: none;
-    height: 10px;
-    background: #dddddd;
-    outline:none;
-    border-radius: 8px;
-    width: 100%;
-    opaticty: 0.7;
-    transition: opacity 0.2s;
-    margin-top: 1rem;
+appearance: none;
+-webkit-appearance: none;
+height: 10px;
+background: #dddddd;
+outline: none;
+border-radius: 8px;
+width: 100%;
+opacity: 0.7;
+transition: opacity 0.2s;
+margin-top: 1rem;
 }
 .customizar .senhaTamanho .slider:hover{/* customizando bola do slider */
     opacity: 1; /* quando passa o mouse por cima */
 }
 .customizar .senhaTamanho .slider::-webkit-slider-thumb{/* customizando bola do slider */
     /* webkit para atender navegadores que usam o rendereizador do goole (chrome,ie,edge) */
-    -webkit-appearance: none; 
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 25px;
-    background: #9b51e0;
-    cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+  background: #9b51e0;
+  cursor: pointer;
 }
 .customizar .senhaTamanho .slider::-moz-range-thumb {/* customizando bola do slider */
     /* moz para atender navegadores o rendereizador da mozila (firefox)*/
